@@ -76,4 +76,15 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/data.csv")
+    public void testStationsSum(int currentRadioStation, int expected) {
+        Radio radio = new Radio(10);
+        radio.setCurrentRadioStation(currentRadioStation);
+
+        int actual = radio.getCurrentRadioStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
